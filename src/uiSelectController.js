@@ -506,7 +506,6 @@ uis.controller('uiSelectCtrl',
       var tagged = false;
 
       if (ctrl.items.length > 0 || ctrl.tagging.isActivated) {
-        _handleDropDownSelection(key);
         if ( ctrl.taggingTokens.isActivated ) {
           for (var i = 0; i < ctrl.taggingTokens.tokens.length; i++) {
             if ( ctrl.taggingTokens.tokens[i] === KEY.MAP[e.keyCode] ) {
@@ -526,6 +525,9 @@ uis.controller('uiSelectCtrl',
               if (newItem) ctrl.select(newItem, true);
             });
           }
+        }
+        if ( !tagged ) {
+          _handleDropDownSelection(key);
         }
       }
 
